@@ -6,6 +6,14 @@ export const GET = 'Note/GET'
 export const ADD = 'Note/ADD';
 export const DELETE = 'Note/DELETE';
 
+const ENV = {};
+
+ENV.isProduction = window.location.href.includes('work-notes');
+
+ENV.productionApiUrl = 'https://works-notes.herokuapp.com';
+ENV.developmentApiUrl = 'http://localhost:3300';
+ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
+
 // Reducer
 export default function reducer(state = defaultState, action) {
 
@@ -43,7 +51,7 @@ export default function reducer(state = defaultState, action) {
 // Action Creators
 export const addNote = (note) => dispatch => {
   console.log('addNote action', note);
-  superagent.post('http://localhost:3300/api/notes', note)
+  superagent.post(`${ENV.apiUrl}/api/notes`, note)
   .then(res => dispatch({
     type: ADD,
     payload: res.body
@@ -55,7 +63,7 @@ export const addNote = (note) => dispatch => {
 
 export const deleteNote = (note) => dispatch => {
   let id = note._id
-  superagent.delete(`http://localhost:3300/api/notes/${id}`)
+  superagent.delete(`${ENV.apiUrl}/api/notes/${id}`)
   .then(dispatch({
     type: DELETE,
     payload: note
@@ -66,7 +74,7 @@ export const deleteNote = (note) => dispatch => {
 export const getNotes = () => dispatch => {
 console.log('calling getNotes')
   superagent
-  .get('http://localhost:3300/api/notes')
+  .get(`${ENV.apiUrl}/api/notes`)
   .then(res =>
   dispatch({
     type: GET,
