@@ -3,12 +3,12 @@ import Note from '../../models/note.js'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/api/notes', (req, res) => {
     Note.find()
         .then(notes => res.json(notes))
 });
 
-router.post('/', (req, res) => {
+router.post('/api/notes', (req, res) => {
     const newNote = new Note({
         name: req.body.name,
         content: req.body.content,
@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/api/notes/:id', (req, res) => {
     Note.findById(req.params.id)
         .then(note => note.remove()
             .then(() => res.json({
