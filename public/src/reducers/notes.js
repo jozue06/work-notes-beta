@@ -10,7 +10,7 @@ const ENV = {};
 
 ENV.isProduction = window.location.href.includes('work-notes');
 
-ENV.productionApiUrl = 'https://works-notes.herokuapp.com';
+ENV.productionApiUrl = 'https://work-notes.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3300';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
