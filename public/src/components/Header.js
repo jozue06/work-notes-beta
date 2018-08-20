@@ -12,7 +12,7 @@ class Header extends React.Component {
     render() {
       return (
         <Head>
-          Make a simple budget tracker
+         A simple Notes App
         </Head>
       );
     }

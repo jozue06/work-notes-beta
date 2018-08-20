@@ -2,7 +2,7 @@ import React from 'react';
 import S from '../components/styles/styles.js'
 import Header from './Header'
 import Footer from './Footer'
-import CategoryContainer from './Category/CategoryContainer';
+import NotesContainer from './Notes/NotesContainer';
 
 class Dashboard extends React.Component{
 
@@ -13,7 +13,7 @@ class Dashboard extends React.Component{
     <main>
     <Header />
     <S.Wrapper>
-      <CategoryContainer />
+      <NotesContainer />
     </S.Wrapper>
     <Footer />
     </main>

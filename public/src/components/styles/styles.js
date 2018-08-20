@@ -2,14 +2,25 @@ import styled from 'styled-components';
 
 
 const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 0.8em;
   text-align: center;
   color: red;
   list-style-type: none;
 `;
 
+const Section = styled.div`
+  color: white;
+  font-size: 1.1em;
+  margin: 0.1em;
+  padding: 0.25em 0.25em;
+  background: palevioletred;
+  border: 1px solid palevioletred;
+  border-radius: 3px;
+  text-align: center;
+`
+
 const Text = styled.p`
-  font-size: 1.5em;
+  font-size: 1em;
   text-align: center;
   color: palevioletred;
   list-style-type: none;
@@ -29,19 +40,16 @@ const Wrapper = styled.section`
   list-style-type: none;
 `;
 
-const Ups = styled.p`
-font-size: .5em;
-`;
 
 const Button = styled.button`
   /* Adapt the colours based on primary prop */
   background: ${(props) => props.primary ? 'palevioletred' : 'white'};
   color: ${(props) => props.primary ? 'white' : 'palevioletred'};
 
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  font-size: 0.3em;
+  margin: 0.2em;
+  padding: 0.25em 0.25em;
+  border: 1px solid palevioletred;
   border-radius: 3px;
   text-align: center;
 `;
@@ -52,5 +60,5 @@ export default {
   Wrapper,
   Text,
   Link,
-  Ups,
+  Section,
 };

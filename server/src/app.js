@@ -5,23 +5,22 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import authRouter from '../auth/router.js';
-// import publicRoute from '../routes/api/publicApi.js';
 
 import errorHandler from '../middleware/error.js';
 import notFound from '../middleware/404.js';
-import categories from '../routes/api/category.js';
+import notes from '../routes/api/notes.js';
 
 
 let app = express();
 
 app.use(cors());
 app.use(morgan('dev'));
-app.use(express.json());  // => req.body
-app.use(express.urlencoded({extended:true})); // req.body => from a form's key value pairs
+app.use(express.json());  
+app.use(express.urlencoded({extended:true})); 
 
 app.use(authRouter);
-// app.use(publicRoute);
-app.use('/api/categories', categories);
+
+app.use('/api/notes', notes);
 
 app.use(notFound);
 app.use(errorHandler);
