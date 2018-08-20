@@ -8,11 +8,7 @@ export const DELETE = 'Note/DELETE';
 
 const ENV = {};
 
-ENV.isProduction = window.location.href.includes('work-notes');
-
-ENV.productionApiUrl = 'https://work-notes.herokuapp.com';
-ENV.developmentApiUrl = 'http://localhost:3300';
-ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
+ENV.apiUrl = 'https://work-notes.herokuapp.com';
 
 // Reducer
 export default function reducer(state = defaultState, action) {

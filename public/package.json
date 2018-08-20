@@ -1,7 +1,6 @@
 {
   "name": "notes-app",
   "version": "0.1.0",
-  "private": false,
   "dependencies": {
     "jest": "^22.4.4",
     "jsonwebtoken": "latest",
