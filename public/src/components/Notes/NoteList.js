@@ -12,7 +12,10 @@ const NoteList = (props) => {
   return (  
     <ul>
       <S.Text>{props.notes.map(Note => <li key={Note._id}>
-      name of note: {Note.name} <br /> Note Text: {Note.content}
+      Title: 
+        {Note.name} <br /> 
+      Note Text: 
+        <S.Section>{Note.content}</S.Section>
       <br />
       
       <S.Button note={Note} onClick={() => props.deleteNote(Note)} >Remove Note</S.Button>
