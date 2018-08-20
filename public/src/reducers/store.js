@@ -1,13 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose  } from 'redux';
 
 
-import expenseState from './expense';
-import categoryState from './category';
+// import expenseState from './expense';
+import notesState from './notes';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-  expenseState,
-  categoryState,
+  // expenseState,
+  notesState,
 });
 
 const middleware = [thunk];

@@ -1,28 +1,28 @@
 import express from 'express';
-import Category from '../../models/Category.js'
+import Note from '../../models/note.js'
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    Category.find()
-        .then(categories => res.json(categories))
+    Note.find()
+        .then(notes => res.json(notes))
 });
 
 router.post('/', (req, res) => {
-    const newCategory = new Category({
+    const newNote = new Note({
         name: req.body.name,
-        budget: req.body.budget,
+        content: req.body.content,
         id: req.body.id,
         timestamp: req.body.timestamp
     });
-    newCategory.save()
-        .then(category => res.json(category));
+    newNote.save()
+        .then(note => res.json(note));
 
 });
 
 router.delete('/:id', (req, res) => {
-    Category.findById(req.params.id)
-        .then(category => category.remove()
+    Note.findById(req.params.id)
+        .then(note => note.remove()
             .then(() => res.json({
                 deleted: true
             }))

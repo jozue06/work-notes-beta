@@ -11,7 +11,7 @@ const Foot = styled.h1`
 
 class Footer extends React.Component {
   render() {
-    return <Foot>The Footer</Foot>;
+    return <Foot>Jm6</Foot>;
   }
 }
 

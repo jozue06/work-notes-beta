@@ -2,9 +2,9 @@
 
 import mongoose from 'mongoose';
 
-const categorySchema = new mongoose.Schema({
+const noteSchema = new mongoose.Schema({
     name: {type: String},
-    budget: {type: String},
+    content: {type: String },
     id: {type: String},
     timestamp: {type: String},
 });
@@ -12,4 +12,4 @@ const categorySchema = new mongoose.Schema({
 
 
 
-export default mongoose.model('category', categorySchema);
+export default mongoose.model('note', noteSchema);
