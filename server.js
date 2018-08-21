@@ -1,15 +1,11 @@
 'use strict';
-
+import dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-// import path from 'path';
+import path from 'path';
 
-import authRouter from '../auth/router.js';
-
-import errorHandler from '../middleware/error.js';
-import notFound from '../middleware/404.js';
-import notes from '../routes/api/notes.js';
+import notes from './routes/api/notes.js';
 
 
 let app = express();
@@ -19,20 +15,16 @@ app.use(morgan('dev'));
 app.use(express.json());  
 app.use(express.urlencoded({extended:true})); 
 
-app.use(authRouter);
 
 app.use('/api/notes', notes);
 
 
-// app.use(express.static('public/build'))
-// app.get('/', (req,res) => {
-//   res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'))
+app.use(express.static('client/build'))
+app.get('/', (req,res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 
-// })
+})
 
-
-app.use(notFound);
-app.use(errorHandler);
 
 let server = false;
 
@@ -55,4 +47,3 @@ module.exports = {
     });
   },
 };
-
