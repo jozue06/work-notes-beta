@@ -33,9 +33,13 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "server": "nodemon index.js",
-    "client": "npm start --prefix public",
-    "start": "concurrently \"npm run server\" \" npm run client\"",
-    "heroku-postbuild": "npm install --prefix public && npm run build --prefix public"
+    "DevServer": "nodemon index.js",
+    "DevClient": "npm run start --prefix client",
+    "DevTestClient": "npm install --prefix client && npm run build --prefix client",
+    "start": "node index.js",
+    "dev": "concurrently \"npm run DevServer\" \" npm run DevClient\"",
+    "devTest": "concurrently \"npm start\" \" npm run DevTestClient\"",
+
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   }
 }

@@ -9,4 +9,7 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err))
 
-require('./server/src/app.js').start(process.env.PORT);
+const port = process.env.PORT || 3300;
+
+
+require('./server.js').start(process.env.PORT);
