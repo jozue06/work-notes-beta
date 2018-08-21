@@ -13,13 +13,11 @@ ENV.apiUrl = 'https://work-notes.herokuapp.com';
 // Reducer
 export default function reducer(state = defaultState, action) {
 
-  console.log({action});
   
   const { type, payload } = action;
 
   switch (type) {
     case ADD:
-      // payload.id = uuid(); // this ok or need fresh copy?
       return {
         ...state,
         notes: [...state.notes, payload]
@@ -28,12 +26,10 @@ export default function reducer(state = defaultState, action) {
       return {
         ...state,
         notes: state.notes.filter(note => {
-          console.log('payss', payload)
           return note._id !== payload._id})
       };
 
       case GET:
-      console.log('action reducer get', state)
       return ({
         ...state,
        notes: action.payload
@@ -46,7 +42,6 @@ export default function reducer(state = defaultState, action) {
 
 // Action Creators
 export const addNote = (note) => dispatch => {
-  console.log('addNote action', note);
   superagent.post(`${ENV.apiUrl}/api/notes`, note)
   .then(res => dispatch({
     type: ADD,
@@ -68,7 +63,6 @@ export const deleteNote = (note) => dispatch => {
 }
 
 export const getNotes = () => dispatch => {
-console.log('calling getNotes')
   superagent
   .get(`${ENV.apiUrl}/api/notes`)
   .then(res =>

@@ -2,12 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import S from '../styles/styles'
 
-
-
 const NoteList = (props) => {
-
-  
-  console.log('cat list props', props.notes)
   
   return (  
     <ul>
