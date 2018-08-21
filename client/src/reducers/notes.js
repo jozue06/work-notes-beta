@@ -2,9 +2,10 @@ import superagent from 'superagent';
 import defaultState from './defaultState';
 
 // Action type
-export const GET = 'Note/GET'
+export const GET = 'Note/GET';
 export const ADD = 'Note/ADD';
 export const DELETE = 'Note/DELETE';
+export const UPDATE = 'Note/UPDATE';
 
 const ENV = {};
 
@@ -35,6 +36,12 @@ export default function reducer(state = defaultState, action) {
        notes: action.payload
       });
       
+      case UPDATE:
+      return ({  
+        ...state,
+      notes: state.notes.map(note => note._id === payload._id ? payload : note)
+      });
+      
     default: return state;
   }
 }
@@ -43,13 +50,12 @@ export default function reducer(state = defaultState, action) {
 // Action Creators
 export const addNote = (note) => dispatch => {
   superagent.post(`${ENV.apiUrl}/api/notes`, note)
-  .then(res => dispatch({
+  .then(res => 
+    dispatch({
     type: ADD,
     payload: res.body
   })
 )
-
-  
 }
 
 export const deleteNote = (note) => dispatch => {
@@ -71,4 +77,12 @@ export const getNotes = () => dispatch => {
     payload: res.body
   }))
 
+}
+
+export const updateNote = (note) => dispatch => {
+  superagent.put(`${ENV.apiUrl}/api/notes`, note)
+  .then(res => dispatch({
+    type: UPDATE,
+    payload: res.body
+  }))
 }

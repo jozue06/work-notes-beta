@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import S from '../styles/styles'
+import NoteForm from './NoteForm'
 
 const NoteList = (props) => {
-  
+
   return (  
     <ul>
       <S.Text>{props.notes.map(Note => <li key={Note._id}>
@@ -14,9 +15,16 @@ const NoteList = (props) => {
       <br />
       
       <S.Button note={Note} onClick={() => props.deleteNote(Note)}>Remove Note</S.Button>
-        </li>)}
+        
+      <NoteForm
+      key={Note._id}
+      note={Note}
+      onComplete={this.updateNote}
+      buttonText="update"
+      name={Note.name}
+      content={Note.content} /></li>)}
         </S.Text>
-      
+        
     </ul>
   );
 };

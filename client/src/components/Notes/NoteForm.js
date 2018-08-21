@@ -15,6 +15,18 @@ export default class NoteForm extends Component {
     this.setState({ name: '', content: ''});
   }
 
+  showEditForm = () => {
+    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
+  }
+
+  updateNote = (note) => {
+    this.setState({
+      editing: false
+    }, () => console.log('update the state', note));
+    this.props.onComplete(note);
+  }
+
+
   changeHandler = (event) => {
     this.setState({
       [event.target.name] : event.target.value

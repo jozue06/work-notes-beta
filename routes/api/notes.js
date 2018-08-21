@@ -30,4 +30,10 @@ router.delete('/:id', (req, res) => {
         .catch(err => res.status(404).json({deleted: false}));
 })
 
+router.put('/:id', (req, res) => {
+Note.findById(req.params.id)
+.then(note => note.update())
+
+})
+
 export default router;
