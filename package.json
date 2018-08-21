@@ -1,7 +1,7 @@
 {
   "name": "32",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "babel-env": "^2.4.1",
     "babel-eslint": "^8.2.3",
