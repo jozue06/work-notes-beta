@@ -33,7 +33,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "server": "nodemon ./server/server.js",
+    "server": "nodemon ./server.js",
     "client": "npm start --prefix public",
     "start": "concurrently \"npm run server\" \" npm run client\"",
     "heroku-postbuild": "npm install --prefix public && npm run build --prefix public"
