@@ -23,14 +23,12 @@ app.use(authRouter);
 
 app.use('/api/notes', notes);
 
+
 app.use(express.static('public/build'))
-if(process.env.NODE_ENV === 'production'){
+app.get('/', (req,res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'))
 
-    app.get('*', (req,res) => {
-      res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'))
-
-    })
-}
+})
 
 
 app.use(notFound);
