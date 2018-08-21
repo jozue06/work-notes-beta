@@ -13,7 +13,7 @@ const NoteList = (props) => {
         <S.Section>{Note.content}</S.Section>
       <br />
       
-      <S.Button note={Note} onClick={() => props.deleteNote(Note)} >Remove Note</S.Button>
+      <S.Button note={Note} onClick={() => props.deleteNote(Note)}>Remove Note</S.Button>
         </li>)}
         </S.Text>
       
