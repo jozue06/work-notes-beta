@@ -10,7 +10,6 @@ import NoteList from './NoteList';
 class NotesContainer extends React.Component{
   
   componentDidMount(){
-    console.log('did mount')
    this.props.getNotes();
     }
 
