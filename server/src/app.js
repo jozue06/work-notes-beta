@@ -3,7 +3,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import path from 'path';
+// import path from 'path';
 
 import authRouter from '../auth/router.js';
 
