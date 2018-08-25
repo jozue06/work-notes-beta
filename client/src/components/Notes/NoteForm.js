@@ -40,9 +40,9 @@ export default class NoteForm extends Component {
       <form onSubmit={this.submitHandler}>
         <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
         <br />
-        <textarea name="content" value={this.state.content} onChange={this.changeHandler} type="text" placeholder="Note?"/>
+        <textarea name="content" value={this.state.content} onChange={this.changeHandler}type="text" placeholder="Note?"/>
         <br />
-        <S.Button>{this.props.buttonText}</S.Button>
+        <S.Button onClick={this.updateNote} >{this.props.buttonText}</S.Button>
       </form>
       </S.Text>
     );

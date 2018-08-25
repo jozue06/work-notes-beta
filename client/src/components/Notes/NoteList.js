@@ -19,7 +19,7 @@ const NoteList = (props) => {
       <NoteForm
       key={Note._id}
       note={Note}
-      onComplete={this.updateNote}
+      onComplete={props.updateNote}
       buttonText="update"
       name={Note.name}
       content={Note.content} /></li>)}
