@@ -47,7 +47,7 @@ const Button = styled.button`
   background: ${(props) => props.primary ? 'palevioletred' : 'white'};
   color: ${(props) => props.primary ? 'white' : 'palevioletred'};
 
-  font-size: 0.3em;
+  font-size: 1em;
   margin: 0.2em;
   padding: 0.25em 0.25em;
   border: 1px solid palevioletred;
