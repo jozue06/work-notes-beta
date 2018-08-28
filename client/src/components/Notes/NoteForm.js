@@ -15,9 +15,7 @@ export default class NoteForm extends Component {
     this.setState({ name: '', content: ''});
   }
 
-  showEditForm = () => {
-    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
-  }
+ 
 
   updateNote = (note) => {
     this.setState({
@@ -26,6 +24,10 @@ export default class NoteForm extends Component {
     this.props.onComplete(note);
   }
 
+  showEditForm = () => {
+    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
+  }
+  
 
   changeHandler = (event) => {
     this.setState({
