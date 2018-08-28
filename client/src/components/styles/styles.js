@@ -11,11 +11,12 @@ const Title = styled.h1`
 const Section = styled.div`
   color: white;
   font-size: 1.1em;
-  margin: 0.1em;
-  padding: 0.25em 0.25em;
+  margin-left: 12em;
+  margin-right: 12em;
+  padding: 2em 2em;
   background: palevioletred;
   border: 1px solid palevioletred;
-  border-radius: 3px;
+  border-radius: 5px;
   text-align: center;
 `
 
@@ -46,7 +47,7 @@ const Button = styled.button`
   background: ${(props) => props.primary ? 'palevioletred' : 'white'};
   color: ${(props) => props.primary ? 'white' : 'palevioletred'};
 
-  font-size: 0.3em;
+  font-size: 1em;
   margin: 0.2em;
   padding: 0.25em 0.25em;
   border: 1px solid palevioletred;
