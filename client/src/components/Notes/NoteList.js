@@ -5,18 +5,9 @@ import NoteForm from './NoteForm'
 
 const NoteList = (props) => {
 
-  state = {
-     editing: false
-  }
-
-
-  showEditForm = () => {
-    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
-  }
-
   return (  
     <ul>
-      <S.Text nDoubleClick={this.showEditForm} >{props.notes.map(Note => <li key={Note._id}>
+      <S.Text  >{props.notes.map(Note => <li key={Note._id}>
       Title: 
         {Note.name} <br /> 
       Note Text: 
@@ -24,14 +15,15 @@ const NoteList = (props) => {
       <br />
       
       <S.Button note={Note} onClick={() => props.deleteNote(Note)}>Remove Note</S.Button>
-        
-      {this.state.editing && <NoteForm
+
+     
+      <NoteForm
       key={Note._id}
       note={Note}
       onComplete={props.updateNote}
       buttonText="update"
       name={Note.name}
-      content={Note.content} />}</li>)}
+      content={Note.content} /></li>)}
         </S.Text>
         
     </ul>
