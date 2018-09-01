@@ -11,14 +11,9 @@ export default class NoteForm extends Component {
   }
 
   submitHandler = (event) => {
-    console.log('hit handler')
     event.preventDefault();
     this.props.onComplete(this.state);
     this.setState({ name: '', content: ''});
-  }
-
-  showEditForm = () => {
-    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
   }
 
 
