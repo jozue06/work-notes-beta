@@ -27,12 +27,12 @@ export default class NoteList extends React.Component {
       <br />
       
       <S.Button note={Note} onClick={() => this.props.deleteNote(Note)}>Remove Note</S.Button>
+
      {this.state.editing && 
       <NoteForm
       key={Note._id}
       note={Note}
-      updateNote={this.props.updateNote}
-     
+      onComplete={this.props.updateNote}
       id={Note._id}
       buttonText="update Note"
       name={Note.name}
