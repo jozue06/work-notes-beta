@@ -31,6 +31,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
+    console.log('putted')
 Note.findById(req.params.id)
 .then(note => note.update())
 

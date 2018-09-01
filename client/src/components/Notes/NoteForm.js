@@ -7,6 +7,7 @@ export default class NoteForm extends Component {
   state = {
     name:'',
     content: '',
+    id:this.props.id
   }
 
   submitHandler = (event) => {
@@ -20,11 +21,19 @@ export default class NoteForm extends Component {
     this.setState({ editing: true }, () => console.log('sthate 1', this.props))
   }
 
-  updateNote = (note) => {
+  upNote = (note) => {
+    console.log('updateNote NoteForm.js', note )
+      // this is the action creator 
+    this.props.updateNote(this.state);
+
     this.setState({
-      editing: false
+      editing: false,
+      name: '', 
+      content: ''
     }, () => console.log('update the state', note));
-    this.props.updateNote(note);
+
+  
+  
   }
 
 
@@ -43,8 +52,8 @@ export default class NoteForm extends Component {
         <br />
         <textarea name="content" value={this.state.content} onChange={this.changeHandler}type="text" placeholder="Note?"/>
         <br />
-        <S.Button updateNote={this.updateNote}>{this.props.buttonText}</S.Button>
       </form>
+        <S.Button id={this.props.id} onClick={() => this.upNote(this.state)}>{this.props.buttonText}</S.Button>
       </S.Text>
     );
   }
@@ -52,7 +61,7 @@ export default class NoteForm extends Component {
 
 //onClick={this.updateNote}
 
-NoteForm.propTypes = {
-  onComplete: PropTypes.func.isRequired,
-  buttonText: PropTypes.string.isRequired,
-}
+// NoteForm.propTypes = {
+//   onComplete: PropTypes.func.isRequired,
+//   buttonText: PropTypes.string.isRequired,
+// }
