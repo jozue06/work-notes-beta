@@ -32,9 +32,15 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     console.log('putted')
-Note.findById(req.params.id)
-.then(note => note.update())
-
+    let noteObj = {
+        name: req.body.name,
+        content: req.body.content
+    }
+Note.findByIdAndUpdate(req.params.id, noteObj, {new:true})
+.then(note => res.json({
+    updated: true,
+    note
+}))
 })
 
 export default router;
