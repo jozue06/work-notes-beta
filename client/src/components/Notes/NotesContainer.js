@@ -21,7 +21,7 @@ class NotesContainer extends React.Component{
       <Card />
       <h2>Notes</h2>
       <NoteForm buttonText="Add Note" onComplete={this.props.addNote}  />
-      <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} updateNote={this.props.updateNote}  />
+      <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} updateNote={this.props.updateNote} />
     </section>
   );
 };

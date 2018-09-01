@@ -1,25 +1,23 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import S from '../styles/styles'
 import NoteForm from './NoteForm'
 
 export default class NoteList extends React.Component {
-  
-  constructor(props){
-    super(props);
-  }
+
   state = {
-    editing: false
+    editing: false,
+    id: '',
   };
 
-  handleEdit = () => {
-    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
+  handleEdit = (id) => {
+    this.setState({ editing: this.state.id === id ? !this.state.editing : true, id: id  })
   }
 
   render(){
   return (  
     <ul>
-      <S.Text onDoubleClick={this.handleEdit}>{this.props.notes.map(Note => <li key={Note._id}>
+      <S.Text>{this.props.notes.map(Note => <li onDoubleClick={ () =>this.handleEdit(Note._id)} key={Note._id}>
       Title: 
         {Note.name} <br /> 
       Note Text: 
@@ -27,12 +25,12 @@ export default class NoteList extends React.Component {
       <br />
       
       <S.Button note={Note} onClick={() => this.props.deleteNote(Note)}>Remove Note</S.Button>
-     {this.state.editing && 
+
+     {this.state.editing && this.state.id === Note._id &&
       <NoteForm
       key={Note._id}
       note={Note}
-      updateNote={this.props.updateNote}
-     
+      onComplete={this.props.updateNote}
       id={Note._id}
       buttonText="update Note"
       name={Note.name}
@@ -45,8 +43,7 @@ export default class NoteList extends React.Component {
 };
 }
 
-//<S.Button note={Note} onClick={() => this.props.updateNote(Note)}>update Note</S.Button>
 
-// NoteList.propTypes = {
-//   notes: PropTypes.arrayOf(PropTypes.object).isRequired
-// }
+NoteList.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired
+}

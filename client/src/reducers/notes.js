@@ -79,17 +79,14 @@ export const getNotes = () => dispatch => {
 
 }
 
-export const updateNote = (note) => dispatch => {
-  
-  
+export const updateNote = (note) => dispatch => { 
   let noteObj = {
     name: note.name,
     content: note.content
   }
-  console.log('UPDATE NOTE ACTION CREATOR', note.id, 'note obj ===>', noteObj)
   superagent.put(`${ENV.apiUrl}/api/notes/${note.id}`, noteObj)
   .then(res => dispatch({
     type: UPDATE,
-    payload: res.body
+    payload: res.body.note
   }))
 }
