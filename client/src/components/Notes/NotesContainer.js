@@ -20,8 +20,8 @@ class NotesContainer extends React.Component{
     <section>
       <Card />
       <h2>Notes</h2>
-      <NoteForm buttonText="Add Note" onComplete={this.props.addNote}  />
-      <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} onComplete={this.props.updateNote} />
+      <NoteForm buttonText="Add Note" onComplete={this.props.addNote} updateNote={this.props.updateNote} />
+      <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote}  />
     </section>
   );
 };

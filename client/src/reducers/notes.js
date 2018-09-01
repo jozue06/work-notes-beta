@@ -80,7 +80,8 @@ export const getNotes = () => dispatch => {
 }
 
 export const updateNote = (note) => dispatch => {
-  superagent.put(`${ENV.apiUrl}/api/notes`, note)
+  let id = note._id
+  superagent.put(`${ENV.apiUrl}/api/notes/${id}`, note)
   .then(res => dispatch({
     type: UPDATE,
     payload: res.body

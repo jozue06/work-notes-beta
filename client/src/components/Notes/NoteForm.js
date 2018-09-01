@@ -10,6 +10,7 @@ export default class NoteForm extends Component {
   }
 
   submitHandler = (event) => {
+    console.log('hit handler')
     event.preventDefault();
     this.props.onComplete(this.state);
     this.setState({ name: '', content: ''});
@@ -23,7 +24,7 @@ export default class NoteForm extends Component {
     this.setState({
       editing: false
     }, () => console.log('update the state', note));
-    this.props.onComplete(note);
+    this.props.updateNote(note);
   }
 
 
@@ -42,12 +43,14 @@ export default class NoteForm extends Component {
         <br />
         <textarea name="content" value={this.state.content} onChange={this.changeHandler}type="text" placeholder="Note?"/>
         <br />
-        <S.Button onClick={this.updateNote} >{this.props.buttonText}</S.Button>
+        <S.Button updateNote={this.updateNote}>{this.props.buttonText}</S.Button>
       </form>
       </S.Text>
     );
   }
 }
+
+//onClick={this.updateNote}
 
 NoteForm.propTypes = {
   onComplete: PropTypes.func.isRequired,
