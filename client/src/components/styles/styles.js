@@ -4,14 +4,14 @@ const Wrapper = styled.section`
   padding: 4em;
   text-align: center;
   background: papayawhip;
-  
 `;
 
 const Input = styled.div`
   font-size: 1em;
   text-align: center;
   color: white;
-`
+`;
+
 const Title = styled.h1`
   font-size: 0.8em;
   text-align: center;
@@ -23,7 +23,8 @@ const Editor = styled.textarea`
   width: 30%;
   height: 5em;
   text-align: center;
-`
+`;
+
 const Text = styled.pre`
   font-size: 1em;
   text-align: center;
@@ -50,7 +51,6 @@ const Button = styled.button`
   padding: 0.25em 0.25em;
   border: 1px solid palevioletred;
   border-radius: 3px;
-
   text-align: center;
   list-style-type: none;
 `;
@@ -67,12 +67,12 @@ const List = styled.li`
   border-radius: 5px;
   text-align: center;
   list-style-type: none;
-`
+`;
 const Tiny = styled.p`
   color: white;
   font-size: 0.1em;
   font-style: italic;
-`
+`;
 
 export default {
   Button,
