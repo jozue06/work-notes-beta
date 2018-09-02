@@ -81,7 +81,6 @@ export const getNotes = () => dispatch => {
     type: GET,
     payload: res.body
   }))
-
 }
 
 export const updateNote = (note) => dispatch => { 
