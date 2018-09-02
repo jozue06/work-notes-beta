@@ -20,7 +20,6 @@ export default class NoteList extends React.Component {
       <ul>
 
         {this.props.notes.sort(function(x,y){
-          console.log('whww', (y.timeStamp - x.timeStamp))
           return y.timeStamp - x.timeStamp
         })
         .map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
