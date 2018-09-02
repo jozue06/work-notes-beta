@@ -74,7 +74,6 @@ const Tiny = styled.p`
   font-style: italic;
 `;
 
-
 export default {
   Button,
   Title,
