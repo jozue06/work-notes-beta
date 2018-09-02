@@ -77,7 +77,6 @@ export const getNotes = () => dispatch => {
   superagent
   .get(`${ENV.apiUrl}/api/notes`)
   .then(res => setTimeout(() => {
-    console.log(res.body)
    dispatch({
     type: GET,
     payload: res.body

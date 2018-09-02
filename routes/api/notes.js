@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     Note.find()
-        .then(notes => res.send({notes}))
+        .then(notes => res.send(notes))
 });
 
 router.post('/', (req, res) => {
