@@ -9,21 +9,13 @@ const Title = styled.h1`
 `;
 
 const Section = styled.div`
-  color: white;
-  font-size: 1.1em;
-  margin-left: 12em;
-  margin-right: 12em;
-  padding: 2em 2em;
-  background: palevioletred;
-  border: 1px solid palevioletred;
-  border-radius: 5px;
-  text-align: center;
+
 `
 
 const Text = styled.p`
   font-size: 1em;
   text-align: center;
-  color: palevioletred;
+  color: white;
   list-style-type: none;
 `;
 
@@ -38,7 +30,7 @@ const Wrapper = styled.section`
   padding: 4em;
   text-align: center;
   background: papayawhip;
-  list-style-type: none;
+  
 `;
 
 
@@ -55,6 +47,32 @@ const Button = styled.button`
   text-align: center;
 `;
 
+const Editor = styled.textarea`
+width: 30%;
+height: 5em;
+text-align: center;
+`
+
+const List = styled.li`
+  color: white;
+  font-size: 1.1em;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  padding: 2em 2em; 
+  background: palevioletred;
+  border: 1px solid palevioletred;
+  border-radius: 5px;
+  text-align: center;
+  list-style-type: none;
+`
+
+const Tiny = styled.p`
+color: white;
+font-size: 0.1em;
+font-style: italic;
+`
+
 export default {
   Button,
   Title,
@@ -62,4 +80,7 @@ export default {
   Text,
   Link,
   Section,
+  Editor,
+  List,
+  Tiny
 };
