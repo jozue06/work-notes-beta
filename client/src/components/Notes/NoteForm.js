@@ -8,7 +8,7 @@ export default class NoteForm extends Component {
     name: this.props.name || '',
     content: this.props.content || '',
     id: this.props.id,
-    timeStamp: new Date(),
+    timeStamp: new Date().valueOf(),
   }
 
   submitHandler = (event) => {

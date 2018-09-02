@@ -17,7 +17,13 @@ export default class NoteList extends React.Component {
   render() {
     return (
       <ul>
-        {this.props.notes.map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
+
+        {this.props.notes.sort(function(x,y){
+          console.log('whww', (y.timeStamp - x.timeStamp))
+          return y.timeStamp - x.timeStamp
+        })
+        .map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
+
          <S.Title>
            Title:
            <br />

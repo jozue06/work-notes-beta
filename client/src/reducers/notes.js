@@ -56,11 +56,11 @@ export default function reducer(state = defaultState, action) {
 export const addNote = (note) => dispatch => {
   console.log('note', note)
   superagent.post(`${ENV.apiUrl}/api/notes`, note)
-  .then(res => setTimeout(() => {
+  .then(res => 
     dispatch({
     type: ADD,
     payload: res.body,
-  })}, 5000))
+  }))
 }
 
 export const deleteNote = (note) => dispatch => {
@@ -76,11 +76,11 @@ export const deleteNote = (note) => dispatch => {
 export const getNotes = () => dispatch => {
   superagent
   .get(`${ENV.apiUrl}/api/notes`)
-  .then(res => setTimeout(() => {
+  .then(res => 
    dispatch({
     type: GET,
     payload: res.body
-  })}, 5000))
+  }))
 
 }
 
