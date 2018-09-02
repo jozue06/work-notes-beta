@@ -10,6 +10,7 @@ export const UPDATE = 'Note/UPDATE';
 const ENV = {};
 
 ENV.apiUrl = 'https://work-notes.herokuapp.com';
+// ENV.apiUrl = 'http://localhost:3300';
 
 // Reducer
 export default function reducer(state = defaultState, action) {
@@ -21,25 +22,29 @@ export default function reducer(state = defaultState, action) {
     case ADD:
       return {
         ...state,
-        notes: [...state.notes, payload]
+        notes: [...state.notes, payload],
+        isLoading: false,
       };
       case DELETE:
       return {
         ...state,
         notes: state.notes.filter(note => {
-          return note._id !== payload._id})
+          return note._id !== payload._id}),
+          isLoading: false,
       };
 
       case GET:
       return ({
         ...state,
-       notes: action.payload
+       notes: action.payload,
+       isLoading: false,
       });
       
       case UPDATE:
       return ({  
         ...state,
-      notes: state.notes.map(note => note._id === payload._id ? payload : note)
+      notes: state.notes.map(note => note._id === payload._id ? payload : note),
+      isLoading: false,
       });
       
     default: return state;
@@ -49,13 +54,13 @@ export default function reducer(state = defaultState, action) {
 
 // Action Creators
 export const addNote = (note) => dispatch => {
+  console.log('note', note)
   superagent.post(`${ENV.apiUrl}/api/notes`, note)
-  .then(res => 
+  .then(res => setTimeout(() => {
     dispatch({
     type: ADD,
-    payload: res.body
-  })
-)
+    payload: res.body,
+  })}, 5000))
 }
 
 export const deleteNote = (note) => dispatch => {
@@ -71,11 +76,12 @@ export const deleteNote = (note) => dispatch => {
 export const getNotes = () => dispatch => {
   superagent
   .get(`${ENV.apiUrl}/api/notes`)
-  .then(res =>
-  dispatch({
+  .then(res => setTimeout(() => {
+    console.log(res.body)
+   dispatch({
     type: GET,
     payload: res.body
-  }))
+  })}, 5000))
 
 }
 

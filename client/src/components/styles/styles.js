@@ -1,37 +1,43 @@
 import styled from 'styled-components';
 
-
-const Title = styled.h1`
-  font-size: 0.8em;
-  text-align: center;
-  color: red;
-  list-style-type: none;
-`;
-
-const Section = styled.div`
-
-`
-
-const Text = styled.p`
-  font-size: 1em;
-  text-align: center;
-  color: white;
-  list-style-type: none;
-`;
-
-const Link = styled.a`
-color: palevioletred;  
-text-align: center;
-list-style-type: none;
-
-`;
-
 const Wrapper = styled.section`
   padding: 4em;
   text-align: center;
   background: papayawhip;
   
 `;
+
+const Input = styled.div`
+  font-size: 1em;
+  text-align: center;
+  color: white;
+`
+const Title = styled.h1`
+  font-size: 0.8em;
+  text-align: center;
+  font-style: italic;
+  list-style-type: none;
+`;
+
+const Editor = styled.textarea`
+  width: 30%;
+  height: 5em;
+  text-align: center;
+`
+const Text = styled.pre`
+  font-size: 1em;
+  text-align: center;
+  color: white;
+  padding: 10%;
+  
+  border-color:papayawhip;
+  border: solid;
+  border-width: .01em;
+`;
+
+
+const Link = styled.a`
+  color: palevioletred;  
 
 
 const Button = styled.button`
@@ -44,14 +50,10 @@ const Button = styled.button`
   padding: 0.25em 0.25em;
   border: 1px solid palevioletred;
   border-radius: 3px;
-  text-align: center;
-`;
 
-const Editor = styled.textarea`
-width: 30%;
-height: 5em;
-text-align: center;
-`
+  text-align: center;
+  list-style-type: none;
+`;
 
 const List = styled.li`
   color: white;
@@ -66,12 +68,25 @@ const List = styled.li`
   text-align: center;
   list-style-type: none;
 `
-
 const Tiny = styled.p`
-color: white;
-font-size: 0.1em;
-font-style: italic;
+  color: white;
+  font-size: 0.1em;
+  font-style: italic;
 `
+
+const Button = styled.button`
+
+  /* Adapt the colours based on primary prop */
+  background: ${(props) => props.primary ? 'palevioletred' : 'white'};
+  color: ${(props) => props.primary ? 'white' : 'palevioletred'};
+
+  font-size: 0.3em;
+  margin: 0.2em;
+  padding: 0.25em 0.25em;
+  border: 1px solid palevioletred;
+  border-radius: 3px;
+  text-align: center;
+`;
 
 export default {
   Button,
@@ -79,7 +94,7 @@ export default {
   Wrapper,
   Text,
   Link,
-  Section,
+  Input,
   Editor,
   List,
   Tiny

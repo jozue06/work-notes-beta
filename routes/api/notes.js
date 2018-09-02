@@ -5,16 +5,18 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     Note.find()
-        .then(notes => res.json(notes))
+        .then(notes => res.send({notes}))
 });
 
 router.post('/', (req, res) => {
+    
     const newNote = new Note({
         name: req.body.name,
         content: req.body.content,
         id: req.body.id,
-        timestamp: req.body.timestamp
+        timeStamp: req.body.timeStamp
     });
+    console.log('newNote ', newNote)
     newNote.save()
         .then(note => res.json(note));
 

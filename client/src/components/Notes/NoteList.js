@@ -17,14 +17,14 @@ export default class NoteList extends React.Component {
   render() {
     return (
       <ul>
-        {this.props.notes.map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
+        {this.props.notes.sort(function(x,y) {return y.timeStamp - x.timeStamp}).map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
          <S.Title>
            Title:
            <br />
         {Note.name} 
         </S.Title> 
         <br />
-         <S.Text> Note Content:
+         <S.Text>
            <br />
         {Note.content}
         </S.Text>
@@ -49,7 +49,6 @@ export default class NoteList extends React.Component {
     );
   };
 }
-
 
 NoteList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired
