@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Foot = styled.h1`
   background: papayawhip;
-  font-size: 1.5em;
+  font-size: 0.5em;
   text-align: center;
   color: palevioletred;
   margin-top: 1em;

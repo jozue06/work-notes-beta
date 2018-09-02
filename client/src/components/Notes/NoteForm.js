@@ -5,23 +5,16 @@ import S from '../styles/styles.js'
 export default class NoteForm extends Component {
 
   state = {
-    name:'',
-    content: '',
+    name: this.props.name || '',
+    content: this.props.content || '',
+    id: this.props.id,
+    timeStamp: new Date().valueOf(),
   }
 
   submitHandler = (event) => {
     event.preventDefault();
     this.props.onComplete(this.state);
-    this.setState({ name: '', content: ''});
-  }
-
- 
-
-  updateNote = (note) => {
-    this.setState({
-      editing: false
-    }, () => console.log('update the state', note));
-    this.props.onComplete(note);
+    this.setState({ name: '', content: '',});
   }
 
   showEditForm = () => {
@@ -38,18 +31,19 @@ export default class NoteForm extends Component {
 
   render() {
     return (
-      <S.Text>
+      <S.Input>
       <form onSubmit={this.submitHandler}>
         <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
         <br />
-        <textarea name="content" value={this.state.content} onChange={this.changeHandler}type="text" placeholder="Note?"/>
+        <S.Editor name="content" value={this.state.content} onChange={this.changeHandler} type="text" placeholder="Note Content"/>
         <br />
-        <S.Button onClick={this.updateNote} >{this.props.buttonText}</S.Button>
+        <S.Button id={this.props.id} >{this.props.buttonText}</S.Button>
       </form>
-      </S.Text>
+      </S.Input>
     );
   }
 }
+
 
 NoteForm.propTypes = {
   onComplete: PropTypes.func.isRequired,
