@@ -18,7 +18,7 @@ export default class NoteForm extends Component {
   }
 
   showEditForm = () => {
-    this.setState({ editing: true }, () => console.log('sthate 1', this.props))
+    this.setState({ editing: true })
   }
   
 
