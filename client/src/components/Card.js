@@ -80,6 +80,7 @@ class Card extends Component {
             <B.Button  >
             <B.Link target="_blank" href="https://genscocustomer.com">Gensco Customer link</B.Link>  </B.Button>
 
+
           </div>
             : null
 

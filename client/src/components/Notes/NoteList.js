@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import S from '../styles/styles'
 import NoteForm from './NoteForm'
 
+
 export default class NoteList extends React.Component {
 
   state = {
