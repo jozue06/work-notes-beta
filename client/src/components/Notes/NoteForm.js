@@ -7,11 +7,13 @@ export default class NoteForm extends Component {
   state = {
     name: this.props.name || '',
     content: this.props.content || '',
-    id: this.props.id
+    id: this.props.id,
+    timeStamp: new Date(),
   }
 
   submitHandler = (event) => {
     event.preventDefault();
+    console.log(this.state)
     this.props.onComplete(this.state);
     this.setState({ name: '', content: ''});
   }

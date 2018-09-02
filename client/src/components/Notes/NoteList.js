@@ -50,7 +50,6 @@ export default class NoteList extends React.Component {
   };
 }
 
-
 NoteList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired
 }
