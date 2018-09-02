@@ -24,7 +24,7 @@ export default class NoteList extends React.Component {
         {Note.name} 
         </S.Title> 
         <br />
-         <S.Text> Note Content:
+         <S.Text>
            <br />
         {Note.content}
         </S.Text>

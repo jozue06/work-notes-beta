@@ -12,7 +12,7 @@ class Header extends React.Component {
     render() {
       return (
         <Head>
-         A simple Notes App
+         The ISR Helper
         </Head>
       );
     }

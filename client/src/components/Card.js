@@ -57,10 +57,10 @@ class Card extends Component {
               this.dropdownMenu = element;
             }} >
             <B.Button >
-              <B.Link target="blank" href="https://blank-face-beta.herokuapp.com">Chat link</B.Link> </B.Button>
+              <B.Link target="_blank" href="https://blank-face-beta.herokuapp.com">Chat link</B.Link> </B.Button>
 
             <B.Button >
-            <B.Link target="blank" href="https://meushvac.force.com/distributor/login?c=OZ7Y35ZRTP6RS8h6wYIEEvB6huEARr5PXNDxkOxHYdOK6wqYL1sTSVSURyY2e.PF6f32_6NzlZ6FE_iKenj01cGlRPGXvi31I1zq1B0Ee9eVMcp04LWuAy3Vicw5vB2mJWGPcqoaWSSGPugMbGhthk8_3rkHN60Jv6.Hs6kEsSKMOXhDSnJBIT8P0LJhwG8TANTKOin7
+            <B.Link target="_blank" href="https://meushvac.force.com/distributor/login?c=OZ7Y35ZRTP6RS8h6wYIEEvB6huEARr5PXNDxkOxHYdOK6wqYL1sTSVSURyY2e.PF6f32_6NzlZ6FE_iKenj01cGlRPGXvi31I1zq1B0Ee9eVMcp04LWuAy3Vicw5vB2mJWGPcqoaWSSGPugMbGhthk8_3rkHN60Jv6.Hs6kEsSKMOXhDSnJBIT8P0LJhwG8TANTKOin7
 " >Mitsubishi link </B.Link> </B.Button>
 
 
@@ -73,8 +73,9 @@ class Card extends Component {
             <B.Button  onClick={this.handleChange}>
               Rheem Link </B.Button>
 
-            <B.Button  >
-            <B.Link target="blank" href="https://genscocustomer.com">Gensco link</B.Link>  </B.Button>
+            <B.Button>
+            <B.Link target="_blank" href="https://genscocustomer.com">Gensco link</B.Link>  
+            </B.Button>
           </div>
             : null
 
