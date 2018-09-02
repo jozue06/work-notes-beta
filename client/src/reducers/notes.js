@@ -10,7 +10,6 @@ export const UPDATE = 'Note/UPDATE';
 const ENV = {};
 
 ENV.apiUrl = 'https://work-notes.herokuapp.com';
-// ENV.apiUrl = 'http://localhost:3300';
 
 // Reducer
 export default function reducer(state = defaultState, action) {
@@ -54,7 +53,6 @@ export default function reducer(state = defaultState, action) {
 
 // Action Creators
 export const addNote = (note) => dispatch => {
-  console.log('note', note)
   superagent.post(`${ENV.apiUrl}/api/notes`, note)
   .then(res => 
     dispatch({
@@ -81,7 +79,6 @@ export const getNotes = () => dispatch => {
     type: GET,
     payload: res.body
   }))
-
 }
 
 export const updateNote = (note) => dispatch => { 
