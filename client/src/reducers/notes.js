@@ -76,12 +76,11 @@ export const deleteNote = (note) => dispatch => {
 export const getNotes = () => dispatch => {
   superagent
   .get(`${ENV.apiUrl}/api/notes`)
-  .then(res => 
+  .then(res => setTimeout(() => {
    dispatch({
     type: GET,
     payload: res.body
-  }))
-
+  })}, 5000))
 }
 
 export const updateNote = (note) => dispatch => { 

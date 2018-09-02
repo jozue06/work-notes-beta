@@ -25,7 +25,7 @@ export default class AwesomeComponent extends React.Component {
           className={override}
           sizeUnit={"px"}
           size={150}
-          color={'#123abc'}
+          color={'palevioletred'}
           loading={this.state.loading}
         />
       </div> 
