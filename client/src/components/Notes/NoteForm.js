@@ -5,8 +5,8 @@ import S from '../styles/styles.js'
 export default class NoteForm extends Component {
 
   state = {
-    name:'',
-    content: '',
+    name: this.props.name || 'Note Name',
+    content: this.props.content || 'Note Content',
     id: this.props.id
   }
 
@@ -28,9 +28,9 @@ export default class NoteForm extends Component {
     return (
       <S.Text>
       <form onSubmit={this.submitHandler}>
-        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
+        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder={this.state.name}/>
         <br />
-        <textarea name="content" value={this.state.content} onChange={this.changeHandler}type="text" placeholder="Note?"/>
+        <S.Editor name="content" value={this.state.content} onChange={this.changeHandler} type="text" placeholder={this.state.content}/>
         <br />
         <S.Button id={this.props.id} >{this.props.buttonText}</S.Button>
       </form>
