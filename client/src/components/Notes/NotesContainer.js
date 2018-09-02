@@ -5,6 +5,7 @@ import { addNote, deleteNote, getNotes, updateNote } from '../../reducers/notes'
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
 import Card from '../Card'
+import S from '../styles/styles'
 
 class NotesContainer extends React.Component{
 
@@ -17,7 +18,7 @@ class NotesContainer extends React.Component{
   return (
     <section> 
       <Card />
-      <h2>Notes</h2>
+      <S.Title>Notes</S.Title>
       <NoteForm buttonText="Add Note" onComplete={this.props.addNote} isLoading={this.props.isLoading} />
       {this.props.isLoading ? <h2>Loading...</h2> : null }
       <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} updateNote={this.props.updateNote}  />

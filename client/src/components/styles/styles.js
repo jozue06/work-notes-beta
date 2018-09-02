@@ -13,7 +13,7 @@ const Input = styled.div`
   color: white;
 `
 const Title = styled.h1`
-  font-size: 0.8em;
+  font-size: 1em;
   text-align: center;
   font-style: italic;
   list-style-type: none;
