@@ -6,28 +6,31 @@ import NoteForm from './NoteForm';
 import NoteList from './NoteList';
 import Card from '../Card'
 
-
-
 class NotesContainer extends React.Component{
-  
-  componentDidMount(){
-   this.props.getNotes();
+
+  componentWillMount() { 
+  this.props.getNotes()
     }
 
 
   render(){
   return (
-    <section>
+    <section> 
       <Card />
       <h2>Notes</h2>
-      <NoteForm buttonText="Add Note" onComplete={this.props.addNote}  />
+      <NoteForm buttonText="Add Note" onComplete={this.props.addNote} isLoading={this.props.isLoading} />
+      {this.props.isLoading ? <h2>Loading...</h2> : null }
       <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} updateNote={this.props.updateNote}  />
+      
     </section>
   );
 };
 
 }
-const mapStateToProps = (state) => ({ notes : state.notesState.notes });
+const mapStateToProps = (state) => ({ 
+  isLoading: state.notesState.isLoading,
+  notes : state.notesState.notes 
+});
 
 const mapDispatchToProps = (dispatch) => ({
   addNote: note => dispatch(addNote(note)),

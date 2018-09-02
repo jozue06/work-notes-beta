@@ -15,7 +15,7 @@ export default class NoteForm extends Component {
     event.preventDefault();
     console.log(this.state)
     this.props.onComplete(this.state);
-    this.setState({ name: '', content: ''});
+    this.setState({ name: '', content: '',});
   }
 
 
