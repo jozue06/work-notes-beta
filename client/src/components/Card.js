@@ -12,8 +12,6 @@ class Card extends Component {
 
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
-    this.updateState = this.updateState.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   showMenu(e) {
@@ -34,9 +32,7 @@ class Card extends Component {
     }
   }
 
-  handleChange(event) {
-    this.updateState(event.target.value);
-  }
+ 
 
 
   render() {
