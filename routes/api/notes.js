@@ -16,7 +16,6 @@ router.post('/', (req, res) => {
         id: req.body.id,
         timeStamp: req.body.timeStamp
     });
-    console.log('newNote ', newNote)
     newNote.save()
         .then(note => res.json(note));
 
@@ -33,7 +32,6 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    console.log('putted')
     let noteObj = {
         name: req.body.name,
         content: req.body.content
