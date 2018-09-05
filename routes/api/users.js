@@ -1,10 +1,10 @@
 import express from 'express';
-import Note from '../../models/note.js'
+import User from '../../models/user.js'
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    Note.find()
+    User.find()
         .populate('notes')
         .exec()
         .then(notes => res.send(notes))

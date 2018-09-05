@@ -7,6 +7,7 @@ const noteSchema = new mongoose.Schema({
     content: {type: String },
     id: {type: String},
     timeStamp: {type: String},
+    user: {type: Schema.Types.ObjectId, ref: 'user' },
 });
 
 
