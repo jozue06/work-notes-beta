@@ -39,8 +39,8 @@ authRouter.get('/oauth', (req, res, next) => {
 
 // A little proof of life here, to show how we can protect any
 // route with our auth middleware
-authRouter.get('/showMeTheMoney', auth, (req,res,next) => {
-  res.send('Here is all the ca$h');
-});
+// authRouter.get('/showMeTheMoney', auth, (req,res,next) => {
+//   res.send('Here is all the ca$h');
+// });
 
 export default authRouter;

@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     Note.find()
-        .populate('notes')
+        .populate('user')
         .exec()
         .then(notes => res.send(notes))
 });

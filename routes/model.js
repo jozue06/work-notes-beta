@@ -24,21 +24,7 @@ userSchema.pre('save', function(next) {
 });
 
 userSchema.statics.createFromOAuth = function(incoming) {
-  /*
-    {
-      kind: 'plus#personOpenIdConnect',
-      sub: '100592365129823370453',
-      name: 'John Cokos',
-      given_name: 'John',
-      family_name: 'Cokos',
-      picture: 'https://lh4.googleusercontent.com/-qN0rHFTCPXY/AAAAAAAAAAI/AAAAAAAAAAw/lGUgjyX0vIc/photo.jpg?sz=50',
-      email: 'john@codefellows.com',
-      email_verified: 'true',
-      locale: 'en',
-      hd: 'codefellows.com'
-    }
-   */
-
+ 
   if ( ! incoming || ! incoming.email ) {
     return Promise.reject('VALIDATION ERROR: missing username/email or password ');
   }

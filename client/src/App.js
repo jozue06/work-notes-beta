@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import store from './reducers/store';
 import Dashboard from './components/Dashboard';
-// in future, get reactstrap for elements?
+import Landing from './components/Landing';
+import SignUp from './components/SignUp';
 
 class App extends Component {
   render() {
@@ -11,7 +12,11 @@ class App extends Component {
       <div className="Notes App">
         <Provider store={store}>
           <BrowserRouter>
-            <Route exact path="/" component={Dashboard} />
+        <React.Fragment>
+            <Route exact path='/' component={Landing} />
+            <Route path='/dashboard' component={Dashboard}/>
+            <Route path='/signup' component={SignUp}/>
+            </React.Fragment>
           </BrowserRouter>
         </Provider>
       </div>
