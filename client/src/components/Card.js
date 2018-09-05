@@ -7,7 +7,6 @@ class Card extends Component {
 
     this.state = {
       showMenu: false,
-      cowSelect: ''
     };
 
     this.showMenu = this.showMenu.bind(this);
@@ -31,8 +30,6 @@ class Card extends Component {
 
     }
   }
-
- 
 
 
   render() {
