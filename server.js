@@ -5,6 +5,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 
+import authRouter from './auth/router.js';
+
 import notes from './routes/api/notes.js';
 
 
