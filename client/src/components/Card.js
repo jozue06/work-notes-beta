@@ -39,10 +39,6 @@ class Card extends Component {
   }
 
 
-  updateState(cowSelect) {
-    this.props.updateCowS(cowSelect);
-  }
-
   render() {
     return (
       <div>
@@ -77,7 +73,7 @@ class Card extends Component {
             <B.Link target="_blank" href="https://www.rheemparts.com">Rheem Parts link</B.Link> </B.Button>
               
             <B.Button >
-            <B.Link target="_blank" href="https://www.shoemakermfg.com">Shoemaker link</B.Link> </B.Button>  
+            <B.Link target="_blank" href="http://www.shoemakermfg.com">Shoemaker link</B.Link> </B.Button>  
 
 
             <B.Button  >
