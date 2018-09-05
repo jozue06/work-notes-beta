@@ -75,6 +75,9 @@ class Card extends Component {
 
             <B.Button  >
             <B.Link target="_blank" href="https://www.rheemparts.com">Rheem Parts link</B.Link> </B.Button>
+              
+            <B.Button >
+            <B.Link target="_blank" href="https://www.shoemakermfg.com">Shoemaker link</B.Link> </B.Button>  
 
 
             <B.Button  >
