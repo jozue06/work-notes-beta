@@ -27,8 +27,8 @@ class SignUp extends Component {
       alert('passwords do not match!');
       this.setState({ password: '', passwordCheck: '' });
     } else {
+      console.log('hit signup else')
       this.props.signupReq(this.state);
-      return <Redirect to='/dashboard' />;
     }
 
   }
@@ -90,7 +90,7 @@ class SignUp extends Component {
   }
 }
 
-const matchStateToProps = state => ({ isLoggedIn: state.userState })
+const matchStateToProps = state => ({ userState: state.userState })
 
 const matchDispatchToProps = dispatch => ({
   signupReq: newUser => dispatch(signupReq(newUser)),

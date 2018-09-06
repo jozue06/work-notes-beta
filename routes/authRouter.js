@@ -18,10 +18,12 @@ authRouter.post('/signup', (req, res, next) => {
     .catch(next);
 });
 
-authRouter.get('/login',auth, (req, res, next) => {
-  res.cookie('auth', req.token);
+authRouter.get('/signin', auth, (req, res, next) => {
+  console.log('singin try', req.token )
+  // res.cookie('auth', req.token);
   res.send(req.token);
 });
+
 
 authRouter.get('/oauth', (req, res, next) => {
 

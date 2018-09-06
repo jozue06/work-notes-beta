@@ -1,7 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose';
-import userSchema from './user.js'
+// import userSchema from './user.js'
 
 const noteSchema = new mongoose.Schema({
     name: {type: String},

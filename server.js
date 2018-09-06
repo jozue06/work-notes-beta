@@ -6,13 +6,16 @@ import cors from 'cors';
 import path from 'path';
 
 import authRouter from './routes/authRouter.js';
-
 import notes from './routes/api/notes.js';
 
 
 let app = express();
 
-app.use(cors());
+let corsOptions={
+  origin: 'http://localhost:3000',
+  }
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());  
 app.use(express.urlencoded({extended:true})); 

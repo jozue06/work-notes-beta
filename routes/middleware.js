@@ -3,8 +3,10 @@
 import User from './model.js';
 
 export default (req, res, next) => {
-
+  // console.log('authorize (1)', req.body)
+  
   let authorize = (token) => {
+    console.log('authorize (2)', token)
     // Given a token, check with the User model to see if its valid
     User.authorize(token)
       .then(user => {
@@ -21,15 +23,18 @@ export default (req, res, next) => {
   };
 
   let authenticate = (auth) => {
+    console.log('authenticat (3) ==>', auth)
     // Validate the user using the model's authenticate method
     User.authenticate(auth)
     // We will always get back a "user" from mongo ... although it might be real and it might be null
       .then(user => {
+        console.log('authenticat (4) ==>', user)
         // If it's null, go to getAuth() ... which should return an error or a login page
         if (!user) { getAuth(); }
         // We must have a good user.  Generate a token and jack that onto the req object and move on
         // we could alternatively put the whole user instance on req.user if there's need for it later?
         else {
+          
           req.token = user.generateToken();
           next();
         }
@@ -41,22 +46,24 @@ export default (req, res, next) => {
 
   // If we're not authenticated either show an error or pop a window
   let getAuth = () => {
+    console.log('try line 48 authenticat (6) ==>')
     // res.set({
     //   'WWW-Authenticate': 'Basic realm="Super Secret Area"'
     // }).send(401);
 
     // Send back a JSON formatted error object through our middleware
-    next({status:401,statusMessage:'Unauthorized',message:'Invalid User ID/Password'});
+    next({status:401, statusMessage:'Unauthorized',message:'Invalid User ID/Password'});
   };
 
   // Try to authenticate -- parse out the headers and do some work!
   try {
+    console.log('try line 58 authenticat (5) ==>', auth)
     let auth = {};
     let authHeader = req.headers.authorization;
 
-    if(!authHeader) {
-      return getAuth();
-    }
+    // if(!authHeader) {
+    //   return getAuth();
+    // }
 
     // BASIC Auth
     if(authHeader.match(/basic/i)) {
