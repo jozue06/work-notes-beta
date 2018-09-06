@@ -5,17 +5,22 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 
+import authRouter from './routes/authRouter.js';
 import notes from './routes/api/notes.js';
 
 
 let app = express();
 
-app.use(cors());
+let corsOptions={
+  origin: 'https://work-notes.herokuapp.com',
+  }
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());  
 app.use(express.urlencoded({extended:true})); 
 
-
+app.use('/auth', authRouter)
 app.use('/api/notes', notes);
 
 

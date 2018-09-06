@@ -11,6 +11,7 @@ const ENV = {};
 
 ENV.apiUrl = 'https://work-notes.herokuapp.com';
 
+
 // Reducer
 export default function reducer(state = defaultState, action) {
 
@@ -53,6 +54,9 @@ export default function reducer(state = defaultState, action) {
 
 // Action Creators
 export const addNote = (note) => dispatch => {
+
+  note.user = JSON.parse(atob(localStorage.token.split('.')[1]));
+
   superagent.post(`${ENV.apiUrl}/api/notes`, note)
   .then(res => 
     dispatch({
