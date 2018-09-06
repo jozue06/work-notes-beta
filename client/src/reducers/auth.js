@@ -2,7 +2,7 @@ import superagent from 'superagent';
 
 // Action type
 
-const authUrl = 'http://localhost:3300';
+const authUrl = 'https://josh-17.herokuapp.com';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
@@ -34,22 +34,16 @@ export const LOGOUT = 'LOGOUT';
     payload: false,
   });
   
-  // export const handleError = (err) => ({
-  //   type: 'HANDLE_ERROR',
-  //   payload: err,
-  // });
-  
   
   //thunkers
   
   export const loginReq = (user) => {
     return dispatch => {
       
-      superagent.get(`${authUrl}/auth/signin`)
+      superagent.get(`${authUrl}/api/signin`)
         .auth(user.username, user.password)
         .then(res => {
           let token = res.text
-          console.log('try loging', token)
           localStorage.setItem('token', token);
           dispatch(logIn());
         })
@@ -60,11 +54,10 @@ export const LOGOUT = 'LOGOUT';
   export const loginAuth = (token) => {
     return dispatch => {
       
-      superagent.get(`${authUrl}/auth/signin`)
-        .set({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token}).then(console.log('setter',token))
+      superagent.get(`${authUrl}/api/signin`)
+        .set({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token})
         .then(res => {
           let token = res.text
-          console.log('try loging', token)
           localStorage.setItem('token', token);
           dispatch(logIn());
         })
@@ -80,11 +73,10 @@ export const LOGOUT = 'LOGOUT';
   
   export const signupReq = (newUser) => {
     return dispatch => {
-      superagent.post(`${authUrl}/auth/signup`)
+      superagent.post(`${authUrl}/api/signup`)
         .send(newUser)
         .then(res => {
           let token = res.text
-          console.log('token back', token)
           localStorage.setItem('token', token)
           dispatch(logIn());
         })
