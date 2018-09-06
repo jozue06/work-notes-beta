@@ -14,7 +14,6 @@ export default class NoteForm extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    console.log(this.state)
     this.props.onComplete(this.state);
     this.setState({ name: '', content: '',});
   }

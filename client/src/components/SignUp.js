@@ -27,7 +27,6 @@ class SignUp extends Component {
       alert('passwords do not match!');
       this.setState({ password: '', passwordCheck: '' });
     } else {
-      console.log('hit signup else')
       this.props.signupReq(this.state);
     }
 
