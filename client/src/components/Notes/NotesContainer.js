@@ -6,6 +6,7 @@ import NoteForm from './NoteForm';
 import NoteList from './NoteList';
 import Card from '../Card'
 import S from '../styles/styles'
+import Loader from '../Loader.js'
 
 class NotesContainer extends React.Component{
 
@@ -20,7 +21,7 @@ class NotesContainer extends React.Component{
       <Card />
       <S.Title>Notes</S.Title>
       <NoteForm buttonText="Add Note" onComplete={this.props.addNote} isLoading={this.props.isLoading} />
-      {this.props.isLoading ? <h2>Loading...</h2> : null }
+      {this.props.isLoading ? <Loader loading={this.props.isLoading}/> : null }
       <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} updateNote={this.props.updateNote}  />
       
     </section>

@@ -7,13 +7,10 @@ class Card extends Component {
 
     this.state = {
       showMenu: false,
-      cowSelect: ''
     };
 
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
-    this.updateState = this.updateState.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   showMenu(e) {
@@ -34,14 +31,6 @@ class Card extends Component {
     }
   }
 
-  handleChange(event) {
-    this.updateState(event.target.value);
-  }
-
-
-  updateState(cowSelect) {
-    this.props.updateCowS(cowSelect);
-  }
 
   render() {
     return (
@@ -75,10 +64,14 @@ class Card extends Component {
 
             <B.Button  >
             <B.Link target="_blank" href="https://www.rheemparts.com">Rheem Parts link</B.Link> </B.Button>
+              
+            <B.Button >
+            <B.Link target="_blank" href="http://www.shoemakermfg.com">Shoemaker link</B.Link> </B.Button>  
 
 
             <B.Button  >
             <B.Link target="_blank" href="https://genscocustomer.com">Gensco Customer link</B.Link>  </B.Button>
+
 
           </div>
             : null

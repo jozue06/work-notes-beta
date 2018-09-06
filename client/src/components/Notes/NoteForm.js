@@ -18,6 +18,10 @@ export default class NoteForm extends Component {
     this.setState({ name: '', content: '',});
   }
 
+  showEditForm = () => {
+    this.setState({ editing: true })
+  }
+  
 
   changeHandler = (event) => {
     this.setState({

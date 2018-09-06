@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import S from '../styles/styles'
 import NoteForm from './NoteForm'
 
+
 export default class NoteList extends React.Component {
 
   state = {
@@ -15,6 +16,7 @@ export default class NoteList extends React.Component {
   render() {
     return (
       <ul>
+
         {this.props.notes.sort(function (x, y) {
           return y.timeStamp - x.timeStamp
         })
@@ -26,6 +28,7 @@ export default class NoteList extends React.Component {
           .map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
             <S.Title>
               Title:
+
            <br />
               {Note.name}
             </S.Title>
