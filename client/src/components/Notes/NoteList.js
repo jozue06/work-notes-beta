@@ -18,9 +18,19 @@ export default class NoteList extends React.Component {
     return (
       <ul>
         {this.props.notes.sort(function(x,y){
-          console.log('whww', (y.timeStamp - x.timeStamp))
+          // console.log('whww', (y.timeStamp - x.timeStamp))
           return y.timeStamp - x.timeStamp
         })
+
+       .filter((ele) => {
+          if(ele.user === JSON.parse(atob(localStorage.token.split('.')[1])).id){
+              // console.log('in the for each ->', ele)
+              return ele.user;
+          }
+             
+       })
+      //  console.log('notes --- > ', notesFiltered)
+
         .map(Note => <S.List onDoubleClick={() => this.handleEdit(Note._id)} key={Note._id}>
          <S.Title>
            Title:

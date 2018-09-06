@@ -2,7 +2,9 @@ import superagent from 'superagent';
 
 // Action type
 
-const authUrl = 'https://josh-17.herokuapp.com';
+// const authUrl = 'https://josh-17.herokuapp.com';
+const authUrl = 'http://localhost:3300';
+
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
@@ -40,7 +42,7 @@ export const LOGOUT = 'LOGOUT';
   export const loginReq = (user) => {
     return dispatch => {
       
-      superagent.get(`${authUrl}/api/signin`)
+      superagent.get(`${authUrl}/auth/signin`)
         .auth(user.username, user.password)
         .then(res => {
           let token = res.text
@@ -54,7 +56,7 @@ export const LOGOUT = 'LOGOUT';
   export const loginAuth = (token) => {
     return dispatch => {
       
-      superagent.get(`${authUrl}/api/signin`)
+      superagent.get(`${authUrl}/auth/signin`)
         .set({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token})
         .then(res => {
           let token = res.text
@@ -73,7 +75,7 @@ export const LOGOUT = 'LOGOUT';
   
   export const signupReq = (newUser) => {
     return dispatch => {
-      superagent.post(`${authUrl}/api/signup`)
+      superagent.post(`${authUrl}/auth/signup`)
         .send(newUser)
         .then(res => {
           let token = res.text

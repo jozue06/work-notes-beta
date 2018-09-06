@@ -5,9 +5,10 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     Note.find()
-        .populate('user')
+        .populate('note')
         .exec()
-        .then(notes => res.send(notes))
+        .then(notes =>{       
+         res.send(notes)})
 });
 
 router.post('/', (req, res) => {
@@ -16,9 +17,9 @@ router.post('/', (req, res) => {
         name: req.body.name,
         content: req.body.content,
         id: req.body.id,
-        timeStamp: req.body.timeStamp
+        timeStamp: req.body.timeStamp,
+        user: req.body.user.id
     });
-    console.log('newNote ', newNote)
     newNote.save()
         .then(note => res.json(note));
 
@@ -35,7 +36,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    console.log('putted')
+
     let noteObj = {
         name: req.body.name,
         content: req.body.content

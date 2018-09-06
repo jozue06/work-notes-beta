@@ -87,7 +87,7 @@ userSchema.methods.comparePassword = function(password) {
 
 // Generate a JWT from the user id and a secret
 userSchema.methods.generateToken = function() {
-  let token = jwt.sign( {id:this._id}, process.env.SECRET || 'changeit' );
+  let token = jwt.sign( {id:this._id, user:this.username}, process.env.SECRET || 'changeit' );
   console.log('generate token', token)
   return token
 };

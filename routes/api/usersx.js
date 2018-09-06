@@ -4,8 +4,9 @@ import User from '../../models/user.js'
 const router = express.Router()
 
 router.get('/', (req, res) => {
+    console.log('user')
     User.find()
-        .populate('notes')
+        .populate('note')
         .exec()
         .then(notes => res.send(notes))
 });
