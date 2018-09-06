@@ -2,9 +2,7 @@ import superagent from 'superagent';
 
 // Action type
 
-// const authUrl = 'https://josh-17.herokuapp.com';
-const authUrl = 'http://localhost:3300';
-
+const authUrl = 'https://work-notes-temp.herokuapp.com';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';

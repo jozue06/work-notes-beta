@@ -7,10 +7,7 @@ import Login from '../components/Login.js';
 class Landing extends Component {
 
   componentDidMount() {
-
-    console.log('loaded')
     if(localStorage && localStorage.token) {
-      // let user = JSON.parse(atob(localStorage.token.split('.')[1]));
       let token = localStorage.token
       this.props.loginAuth(token);
     }

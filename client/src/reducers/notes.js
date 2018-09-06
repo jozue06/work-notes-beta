@@ -9,8 +9,8 @@ export const UPDATE = 'Note/UPDATE';
 
 const ENV = {};
 
-// ENV.apiUrl = 'https://work-notes.herokuapp.com';
-ENV.apiUrl = 'http://localhost:3300';
+ENV.apiUrl = 'https://work-notes-temp.herokuapp.com';
+
 
 // Reducer
 export default function reducer(state = defaultState, action) {

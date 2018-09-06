@@ -11,8 +11,6 @@ const userSchema = new mongoose.Schema({
 });
 
 
-
-
 // Before we save, hash the plain text password
 userSchema.pre('save', function(next) {
   bcrypt.hash(this.password,10)
@@ -54,13 +52,7 @@ userSchema.pre('save', function(next) {
 
 // };
 
-
-
-
-// If we got a user/password, compare them to the hashed password
-// return the user instance or an error
 userSchema.statics.authenticate = function(auth) {
-  console.log('stuff', auth)
   let query = {username:auth.username};
   return this.findOne(query)
     .then(user => user && user.comparePassword(auth.password))
@@ -68,7 +60,6 @@ userSchema.statics.authenticate = function(auth) {
 };
 
 userSchema.statics.authorize = function(token) {
-  console.log('token in model', token)
   let parsedToken = jwt.verify(token, process.env.SECRET || 'changeit');
   let query = {_id:parsedToken.id};
   return this.findOne(query)
@@ -88,7 +79,6 @@ userSchema.methods.comparePassword = function(password) {
 // Generate a JWT from the user id and a secret
 userSchema.methods.generateToken = function() {
   let token = jwt.sign( {id:this._id, user:this.username}, process.env.SECRET || 'changeit' );
-  console.log('generate token', token)
   return token
 };
 
