@@ -12,7 +12,7 @@ import notes from './routes/api/notes.js';
 let app = express();
 
 let corsOptions={
-  origin: 'http://localhost:3000',
+  origin: 'https://work-notes-temp.herokuapp.com/',
   }
 
 app.use(cors(corsOptions));

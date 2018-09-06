@@ -15,7 +15,6 @@ export default class LogIn extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('statee', this.state)
     await this.props.loginReq(this.state);
   }
 
