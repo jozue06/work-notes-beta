@@ -9,7 +9,6 @@ export default class NoteList extends React.Component {
     editing: false,
     id: '',
   };
-  
   handleEdit = (id) => {
     this.setState({ editing: this.state.id === id ? !this.state.editing : true, id: id })
   }
