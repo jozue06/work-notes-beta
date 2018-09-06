@@ -12,7 +12,7 @@ import notes from './routes/api/notes.js';
 let app = express();
 
 let corsOptions={
-  origin: 'https://work-notes-temp.herokuapp.com/',
+  origin: 'https://work-notes-temp.herokuapp.com',
   }
 
 // let corsOptions={

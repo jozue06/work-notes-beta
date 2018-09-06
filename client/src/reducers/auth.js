@@ -3,6 +3,8 @@ import superagent from 'superagent';
 // Action type
 
 const authUrl = 'https://work-notes-temp.herokuapp.com';
+// const authUrl = 'http://localhost:3300';
+
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
