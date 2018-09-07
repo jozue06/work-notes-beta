@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import S from '../styles/styles.js'
+import Editor from './Editor'
 
 export default class NoteForm extends Component {
 
@@ -33,7 +33,19 @@ export default class NoteForm extends Component {
 
   render() {
     return (
+      <React.Fragment> <Editor
+                  blockStyleFn={getBlockStyle}
+                  customStyleMap={styleMap}
+                  editorState={editorState}
+                  handleKeyCommand={this.handleKeyCommand}
+                  keyBindingFn={this.mapKeyToEditorCommand}
+                  onChange={this.onChange}
+                  placeholder="Tell a story..."
+                  ref="editor"
+                  spellCheck={true}
+                />
       <S.Input>
+        
       <form onSubmit={this.submitHandler}>
         <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
         <br />
@@ -45,6 +57,7 @@ export default class NoteForm extends Component {
         <S.Button id={this.props.id} >{this.props.buttonText}</S.Button>
       </form>
       </S.Input>
+      </React.Fragment>
     );
   }
 }
