@@ -10,6 +10,10 @@
     "concurrently": "^3.6.1",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
+    "draft-js": "^0.10.5",
+    "draft-js-hashtag-plugin": "^2.0.3",
+    "draft-js-linkify-plugin": "^2.0.1",
+    "draft-js-plugins-editor": "^2.1.1",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^4.19.1",
@@ -22,9 +26,11 @@
     "nodemon": "^1.18.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-emotion": "^9.2.8",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-spinners": "^0.4.5",
     "react-test-renderer": "^16.4.2",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
@@ -39,7 +45,6 @@
     "start": "node index.js",
     "dev": "concurrently \"npm run DevServer\" \" npm run DevClient\"",
     "devTest": "concurrently \"npm start\" \" npm run DevTestClient\"",
-
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   }
 }

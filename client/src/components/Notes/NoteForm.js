@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import S from '../styles/styles.js'
 
 export default class NoteForm extends Component {
@@ -36,7 +37,10 @@ export default class NoteForm extends Component {
       <form onSubmit={this.submitHandler}>
         <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
         <br />
-        <S.Editor name="content" value={this.state.content} onChange={this.changeHandler} type="text" placeholder="Note Content"/>
+        
+        <S.Editor name="content" value={this.state.content} onChange={this.changeHandler} type="text" placeholder="Note Content">
+        
+        </S.Editor>
         <br />
         <S.Button id={this.props.id} >{this.props.buttonText}</S.Button>
       </form>

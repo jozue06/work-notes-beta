@@ -7,6 +7,7 @@ import NoteList from './NoteList';
 import Card from '../Card'
 import S from '../styles/styles'
 import Loader from '../Loader.js'
+import Editor from './Editor'
 
 class NotesContainer extends React.Component{
 
@@ -18,6 +19,8 @@ class NotesContainer extends React.Component{
   render(){
   return (
     <section> 
+      <Editor />
+      <Toolbar />
       <Card />
       <S.Title>Notes</S.Title>
       <NoteForm buttonText="Add Note" onComplete={this.props.addNote} isLoading={this.props.isLoading} />
