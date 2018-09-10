@@ -7,7 +7,6 @@ import NoteList from './NoteList';
 import Card from '../Card'
 import S from '../styles/styles'
 import Loader from '../Loader.js'
-import Editor from './Editor'
 
 class NotesContainer extends React.Component{
 

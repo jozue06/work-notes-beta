@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import S from '../styles/styles.js'
-import Editor from './Editor'
+import ToggleButtons from './Editor'
+import TextField from '@material-ui/core/TextField';
 
 export default class NoteForm extends Component {
 
@@ -10,54 +11,64 @@ export default class NoteForm extends Component {
     content: this.props.content || '',
     id: this.props.id,
     timeStamp: new Date().valueOf(),
-    user:'',
+    user: '',
   }
 
   submitHandler = (event) => {
     event.preventDefault();
     this.props.onComplete(this.state);
-    this.setState({ name: '', content: '',});
+    this.setState({ name: '', content: '', });
   }
 
   showEditForm = () => {
     this.setState({ editing: true })
   }
-  
+
 
   changeHandler = (event) => {
     this.setState({
-      [event.target.name] : event.target.value
+      [event.target.name]: event.target.value
     })
-    
+
   }
 
   render() {
     return (
-      <React.Fragment> <Editor
-                  blockStyleFn={getBlockStyle}
-                  customStyleMap={styleMap}
-                  editorState={editorState}
-                  handleKeyCommand={this.handleKeyCommand}
-                  keyBindingFn={this.mapKeyToEditorCommand}
-                  onChange={this.onChange}
-                  placeholder="Tell a story..."
-                  ref="editor"
-                  spellCheck={true}
-                />
+
       <S.Input>
-        
-      <form onSubmit={this.submitHandler}>
-        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
+  <ToggleButtons></ToggleButtons>
+        <form onSubmit={this.submitHandler}>
+          {/* <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
         <br />
         
         <S.Editor name="content" value={this.state.content} onChange={this.changeHandler} type="text" placeholder="Note Content">
         
         </S.Editor>
         <br />
-        <S.Button id={this.props.id} >{this.props.buttonText}</S.Button>
-      </form>
+        */}
+
+          <TextField
+            name="name"
+            label="Title:"
+            value={this.state.name}
+            onChange={this.changeHandler}
+            type="text"
+            placeholder="Title" />
+        <br />
+          <TextField
+            id="textarea"
+            label="Note:"
+            placeholder=""
+            multiline
+            name="content"
+            value={this.state.content}
+            onChange={this.changeHandler}
+            type="text"
+          />
+          <br />
+          <S.Button id={this.props.id} >{this.props.buttonText}</S.Button>
+        </form>
       </S.Input>
-      </React.Fragment>
     );
   }
 }
