@@ -36,22 +36,22 @@ app.get('/', (req,res) => {
 
 let server = false;
 
-module.exports = {
-  start: (port) => {
-    if(!server) {
-      server = app.listen(port, (err) => {
-        if(err) { throw err; }
-        console.log('Server running on', port);
-      });
-    }
-    else {
-      console.log('Server is already running');
-    }
-  },
 
-  stop: () => {
-    server.close( () => {
-      console.log('Server is now off');
+function start(port) {
+  if(!server) {
+    server = app.listen(port, (err) => {
+      if(err) { throw err; }
+      console.log('Server running on', port);
     });
-  },
-};
+  }
+  else {
+    console.log('Server is already running');
+  }
+}
+
+function stop() {
+  server.close( () => {
+    console.log('Server is now off');
+  });
+}
+export { start, stop }

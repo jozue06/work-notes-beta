@@ -1,25 +1,17 @@
 'use strict';
 
-require('dotenv').config();
+import { config } from "dotenv";
+import pkg from 'mongoose';
+import { start, stop } from "./server.js";
 
-require('babel-register');
+const { connect } = pkg;
 
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI)
+config();
+connect(process.env.MONGODB_URI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err))
 
 const port = process.env.PORT || 3300;
 
+start(port)
 
-require('./server.js').start(process.env.PORT);
-
-
-// const { MongoClient } = require('mongodb');
-// const uri = 
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
