@@ -2,7 +2,7 @@
 
 import superagent from 'superagent';
 
-import User from '../model';
+import User from '../model.js';
 
 // This is currently setup for Google, but we could easily swap it out
 // for any other provider or even use a totally different module to
