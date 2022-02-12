@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import S from '../styles/styles.js'
-import ToggleButtons from './Editor'
+// import ToggleButtons from './Editor'
 import TextField from '@material-ui/core/TextField';
 
 export default class NoteForm extends Component {
@@ -36,7 +36,7 @@ export default class NoteForm extends Component {
     return (
 
       <S.Input>
-  <ToggleButtons></ToggleButtons>
+        {/* <ToggleButtons></ToggleButtons> */}
         <form onSubmit={this.submitHandler}>
           {/* <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Note Name"/>
         <br />

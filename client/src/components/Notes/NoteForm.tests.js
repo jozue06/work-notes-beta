@@ -7,7 +7,7 @@ it('renders without crashing', () => {
 });
 
 it('supplies form data on complete', () => {
-  const onComplete = jest.fn();
+  // const onComplete = jest.fn();
   const wrapper = mount(<NoteForm buttonText="foo" onComplete={onComplete} />);
   wrapper.find('input').simulate('change', { target: { value: 'Hello', name: 'name' } })
   expect(wrapper.find('input').instance().value).toBe('Hello');
