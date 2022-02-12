@@ -23,7 +23,6 @@ class NotesContainer extends React.Component{
       <NoteForm buttonText="Add Note" onComplete={this.props.addNote} isLoading={this.props.isLoading} />
       {this.props.isLoading ? <Loader loading={this.props.isLoading}/> : null }
       <NoteList notes={this.props.notes} note deleteNote={this.props.deleteNote} updateNote={this.props.updateNote}  />
-      
     </section>
   );
 };

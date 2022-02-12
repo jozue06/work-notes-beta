@@ -8,7 +8,6 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutReq } from '../../src/reducers/auth';
 
-// ******
 class Dashboard extends Component {
   render() {
     return (
@@ -38,8 +37,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
-// ********
-
-
-
-
